@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+:root {
+    --bg-black: #0b0b0d;
+    --accent-purple: #9d4edd;
+    --light-purple: #ffffff;
+    --text-gray: #9e9e9e;
+    --glass: rgba(157, 78, 221, 0.1);
+    --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: var(--bg-black); color: #ffffff; font-family: 'Poppins', sans-serif; overflow-x: hidden; }
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+.container { max-width: 1100px; margin: auto; padding: 0 2rem; }
+.grid { display: grid; gap: 2rem; }
+.section { padding: 80px 0; }
+.section__title { font-size: 2.5rem; margin-bottom: 3rem; text-align: center; color: var(--light-purple); }
+.text-center { text-align: center; }
+
+/* Header */
+.header { width: 100%; position: fixed; top: 0; background: rgba(11, 11, 13, 0.8); backdrop-filter: blur(10px); z-index: 100; }
+.nav { height: 70px; display: flex; justify-content: space-between; align-items: center; }
+.nav__logo { font-size: 1.5rem; font-weight: 700; }
+.nav__logo span { color: var(--accent-purple); }
+.nav__list { display: flex; gap: 2rem; }
+.nav__link:hover { color: var(--accent-purple); transition: 0.3s; }
+
+/* Home Section */
+.home__container { grid-template-columns: 1.2fr 1fr; align-items: center; min-height: 90vh; }
+.home__title { font-size: 4rem; line-height: 1.1; }
+.home__subtitle { color: var(--accent-purple); margin: 1rem 0; font-weight: 400; }
+.home__description { color: var(--text-gray); margin-bottom: 2rem; }
+.home__blob { width: 400px; height: 400px; background: var(--accent-purple); border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; overflow: hidden; animation: blob-morph 8s infinite alternate; border: 5px solid var(--glass-border); }
+.home__blob img { width: 100%; height: 100%; object-fit: crop; }
+
+@keyframes blob-morph {
+    0% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+    100% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+}
+
+/* Glassmorphism Cards */
+.glass-card {
+    background: var(--glass);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 3rem;
+}
+
+/* Skills */
+.skill__item { margin-bottom: 1.5rem; }
+.skill__info { display: flex; justify-content: space-between; margin-bottom: 0.5rem; }
+.skill__bar { width: 100%; height: 8px; background: #222; border-radius: 10px; }
+.skill__level { height: 100%; background: linear-gradient(90deg, var(--accent-purple), var(--light-purple)); border-radius: 10px; }
+
+/* Portfolio Cards */
+.portfolio__container { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+.portfolio__card { position: relative; overflow: hidden; padding: 0; }
+.portfolio__card img { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 20px; }
+.portfolio__hover {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(157, 78, 221, 0.9); display: flex; flex-direction: column;
+    justify-content: center; align-items: center; opacity: 0; transition: 0.5s ease;
+}
+.portfolio__card:hover .portfolio__hover { opacity: 1; }
+
+/* Buttons */
+.button {
+    display: inline-block; background: var(--accent-purple); color: #ffffff;
+    padding: 1rem 2.5rem; border-radius: 50px; font-weight: 600; transition: 0.3s;
+}
+.button--ghost { background: transparent; border: 2px solid var(--accent-purple); margin-left: 1rem; }
+.button:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(157, 78, 221, 0.3); }
+
+/* Socials */
+.social__list { font-size: 2.5rem; margin-bottom: 2rem; display: flex; justify-content: center; gap: 2rem; }
+.social__link:hover { color: var(--accent-purple); transform: scale(1.2); transition: 0.3s; }
